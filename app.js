@@ -15,7 +15,7 @@ app.use(express.static("public"));
 const dbName = "todosListDB";
 let initialItems = [{ name: "Fruit" }, { name: "Buy food" }];
 
-const uri = `mongodb+srv://admin-hypeneutron:${process.env.API_PASS}@cluster0.hq7q7.mongodb.net/todoListDB`;
+const uri = `mongodb+srv://admin-hype:${process.env.API_PASS}@cluster0.hq7q7.mongodb.net/todoListDB`;
 
 const client = new MongoClient(uri, {
    useNewUrlParser: true,
