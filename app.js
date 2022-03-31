@@ -13,6 +13,11 @@ app.use(express.static("public"));
 const dbName = "todosListDB";
 let initialItems = [{ name: "Fruit" }, { name: "Buy food" }];
 
+// listen server-----------------------------------
+app.listen(process.env.PORT || 3000, function () {
+   console.log("server is running on port 3000");
+});
+
 app.get("/about", function (_, res) {
    res.render("pages/about");
 });
@@ -93,11 +98,4 @@ app.post("/delete/:paramName", async function (req, res) {
          res.redirect(link);
       }
    });
-});
-
-const PORT = process.env.PORT || 3000;
-
-// listen server-----------------------------------
-app.listen(PORT, function () {
-   console.log("server is running on port 3000");
 });
