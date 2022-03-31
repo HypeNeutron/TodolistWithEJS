@@ -1,4 +1,5 @@
 const express = require("express");
+const path = require("path");
 const bodyParser = require("body-parser");
 const { ObjectId } = require("mongodb");
 const _ = require("lodash");
@@ -8,8 +9,8 @@ dotenv.config();
 // const date = require("./date");
 
 const app = express();
-app.set("views", "./views");
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
