@@ -1,5 +1,5 @@
 const express = require("express");
-const path = require("path");
+// const path = require("path");
 const bodyParser = require("body-parser");
 const { ObjectId } = require("mongodb");
 const _ = require("lodash");
@@ -9,8 +9,9 @@ dotenv.config();
 // const date = require("./date");
 
 const app = express();
+// app.set("views", path.join(__dirname, "views"));
+app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
@@ -78,10 +79,6 @@ async function SLcollectName(dbn, colName) {
 // listen server-----------------------------------
 app.listen(process.env.PORT || 3000);
 
-app.get("/about", function (_, res) {
-   res.render("pages/about");
-});
-
 // get index request ejs-------------------------
 app.get("/", async function (_, res) {
    const collect = await SLcollectName(dbName, "todosList");
@@ -96,6 +93,11 @@ app.get("/", async function (_, res) {
          newListItems: result,
       });
    }
+});
+
+// other page------------------------------------
+app.get("/about", function (_, res) {
+   res.render("pages/about");
 });
 
 //get dynamic request ejs------------------------
