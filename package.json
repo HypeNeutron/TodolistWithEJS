@@ -6,11 +6,14 @@
    "scripts": {
       "start": "nodemon -L app.js"
    },
+   "engines": {
+      "node": "16.x"
+   },
    "keywords": [
       "EJS",
       "MongoDB"
    ],
-   "aruthor": "",
+   "aruthor": "HypeNeutron",
    "license": "ISC",
    "dependencies": {
       "body-parser": "^1.19.2",

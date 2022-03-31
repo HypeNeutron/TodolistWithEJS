@@ -95,7 +95,9 @@ app.post("/delete/:paramName", async function (req, res) {
    });
 });
 
+const PORT = process.env.PORT || 3000;
+
 // listen server-----------------------------------
-app.listen(3000, function () {
+app.listen(PORT, function () {
    console.log("server is running on port 3000");
 });
