@@ -2,7 +2,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const uri = `mongodb+srv://admin-hypeneutron:${process.env.API_PASS}@cluster0.hq7q7.mongodb.net/todoListDB?appName=mongosh+1.3.1`;
+const uri = `mongodb+srv://admin-hypeneutron:${process.env.API_PASS}@cluster0.hq7q7.mongodb.net/todoListDB`;
 const client = new MongoClient(uri, {
    useNewUrlParser: true,
    useUnifiedTopology: true,
