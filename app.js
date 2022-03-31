@@ -1,5 +1,4 @@
 const express = require("express");
-// const path = require("path");
 const bodyParser = require("body-parser");
 const { ObjectId } = require("mongodb");
 const _ = require("lodash");
@@ -9,7 +8,6 @@ dotenv.config();
 // const date = require("./date");
 
 const app = express();
-// app.set("views", path.join(__dirname, "views"));
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -88,7 +86,7 @@ app.get("/", async function (_, res) {
       await collect.insertMany(initialItems);
       res.redirect("/");
    } else {
-      res.render("pages/todoList", {
+      res.render("pages/index", {
          listTitle: "Today",
          newListItems: result,
       });
@@ -113,7 +111,7 @@ app.get("/:paramName", async function (req, res) {
       await collect.insertMany(initialItems);
       res.redirect("/" + capParam);
    } else {
-      res.render("pages/todoList", {
+      res.render("pages/index", {
          listTitle: capParam,
          newListItems: result,
       });
