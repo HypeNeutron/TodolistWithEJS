@@ -1,9 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const db = require("./database");
 const { ObjectId } = require("mongodb");
 const _ = require("lodash");
 const date = require("./date");
-const db = require("./database");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -14,9 +14,7 @@ const dbName = "todosListDB";
 let initialItems = [{ name: "Fruit" }, { name: "Buy food" }];
 
 // listen server-----------------------------------
-app.listen(process.env.PORT || 3000, function () {
-   console.log("server is running on port 3000");
-});
+app.listen(process.env.PORT || 3000);
 
 app.get("/about", function (_, res) {
    res.render("pages/about");
